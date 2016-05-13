@@ -3,8 +3,7 @@
 var palm;
 var globeimage;
 var myglobe;
-var state = 1
-var bgColor = "black";
+var state = 1;
 var ellipseA = {x:400,y:200,s:50,f:50,hue:black};
 var ellipseB = {x:600,y:200,s:50,f:50,hue:black};
 var ellipseC = {x:800,y:200,s:50,f:50,hue:black};
@@ -15,14 +14,22 @@ function preload(){
 }
 
 function draw(){
-	background(bgColor);
+	background("black");
 	imageMode(CENTER);
 	image(palm,650,525,375,475);
 	myglobe.display();
 	if(state == 2){
 		drawOptions();
 	}
-
+	if(state == 3){
+		HONGKONG();
+	}
+	if(state == 4){
+		SINGAPORE();
+	}
+	if(state == 5){
+		JAKARTA();
+	}
 }
 
 function globe () {
@@ -43,11 +50,11 @@ function globe () {
 
 
 function HONGKONG(){
-	bgColor = "white";
+
 	this.fill("red");
 	this.stroke("red");
 	this.textFont("Gotham");
-	this.text("here i felt lonely. the place, the people, all seemed to pass me by as I missed what is meant to be my home",400,180);
+	this.text("here i felt lonely. the place, the people, all seemed to pass me by",400,180);
 	this.fill("black");
 	this.stroke("black");
 	this.ellipse(circleA, 100, 50,50);
@@ -80,7 +87,7 @@ function HONGKONG(){
 }
 
 function SINGAPORE(){
-	bgColor = "black";
+
 	this.fill("white");
 	this.stroke("white");
 	this.ellipse(mouseX, mouseY, 80,80);
@@ -90,18 +97,17 @@ function SINGAPORE(){
 	this.fill("blue");
 	this.stroke("blue");
 	this.textFont("Gotham");
-	this.text("here i am just me. I am always growing, but this time from inside to outside.",600,180);
+	this.text("here i am just me. I am always growing, present, aware",600,180);
 }
 
 function JAKARTA(){
-	bgColor = "white";
+
 	this.fill("green");
 	this.stroke("green");
 	this.textFont("Gotham");
-	this.text("here I was so happy, but I was a product of what everyone was around me.",800,180);
+	this.text("here I was a product of what everyone was around me.",800,180);
 	fill(ellipseA.hue);
 	stroke(ellipseA.hue);
-
 	ellipse(ellipseA.x,ellipseA.y,ellipseA.s,ellipseA.f);
 	ellipseA.x = ellipseA.x + random(-1,1);
 	ellipseA.y = ellipseA.y + random(-1,1);
@@ -121,13 +127,13 @@ function mousePressed(){
 	myglobe.isClicked();
 	if (mouseY>350 && mouseY<400){
 		if (mouseX>375 && mouseX<500){
-			HONGKONG();
+			state = 3;
 		}
 		if (mouseX>575 && mouseX<700){
-			SINGAPORE();
+			state = 4;
 		}
 		if (mouseX>775 && mouseX<900){
-			JAKARTA();
+			state = 5;
 		}
 	}
 }
