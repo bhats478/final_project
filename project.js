@@ -5,9 +5,9 @@ var globeimage;
 var myglobe;
 var state = 1
 var bgColor = "black";
-var ellipseA = {x:400,y:200,d:50,c:50,hue:black};
-var ellipseB = {x:600,y:200,d:50,c:50,hue:black};
-var ellipseC = {x:800,y:200,d:50,c:50,hue:black};
+var ellipseA = {x:400,y:200,s:50,f:50,hue:black};
+var ellipseB = {x:600,y:200,s:50,f:50,hue:black};
+var ellipseC = {x:800,y:200,s:50,f:50,hue:black};
 
 function preload(){
 	palm = loadImage("palm.png");
@@ -99,6 +99,20 @@ function JAKARTA(){
 	this.stroke("green");
 	this.textFont("Gotham");
 	this.text("here I was so happy, but I was a product of what everyone was around me.",800,180);
+	fill(ellipseA.hue);
+	stroke(ellipseA.hue);
+
+	ellipse(ellipseA.x,ellipseA.y,ellipseA.s,ellipseA.f);
+	ellipseA.x = ellipseA.x + random(-1,1);
+	ellipseA.y = ellipseA.y + random(-1,1);
+
+	ellipse(ellipseB.x,ellipseB.y,ellipseB.s,ellipseB.f);
+	ellipseB.x = ellipseB.x + random(-1,1);
+	ellipseB.y = ellipseB.y + random(-1,1);
+
+	ellipse(ellipseC.x,ellipseC.y,ellipseC.s,ellipseC.f);
+	ellipseC.x = ellipseC.x + random(-1,1);
+	ellipseC.y = ellipseC.y + random(-1,1);
 }
 
 
